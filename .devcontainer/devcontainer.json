@@ -1,31 +1,10 @@
 {
-  "name": "BDR Raspberry Pi Dev Env",
+  "name": "RPi ARM64 Dev",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": "..",
-    "args": {
-      "USERNAME": "bdr"
-    }
+    "platform": "linux/arm64"
   },
-  "remoteUser": "bdr",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "mounts": [
-    // Optional: keep home persistent per user
-    "source=bdr_home,target=/home/bdr,type=volume"
-  ],
-  "onCreateCommand": "ln -sf /workspaces/${localWorkspaceFolderBasename}/src /home/bdr/src",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-vscode.cpptools",
-        "ms-azuretools.vscode-docker",
-        "github.copilot"
-      ],
-      "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-      }
-    }
-  },
-  "runArgs": ["--platform=linux/arm64"]
+  "runArgs": ["--platform=linux/arm64"],
+  "remoteUser": "root"
 }
+
